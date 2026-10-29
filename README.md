@@ -31,6 +31,10 @@ cd ../frontend && npm ci && npm run build && cd ../backend
 
 (`backend/.venv` and `frontend/node_modules` are links to the SatyaPatra project's environment on this laptop. Elsewhere, create them with `python3 -m venv .venv && .venv/bin/pip install -r ../../satyapatra/backend/requirements.txt` and `npm ci`.)
 
+## Deploy (one container)
+
+The `Dockerfile` builds the console, installs the API, and bakes the demo data into the image (`backend/build_demo.sh`), so the site starts at once and every restart is a clean demo. `backend/start.sh` runs the sandbox bank inside the container and the portal on `$PORT`. It works on any Docker host, for example Render (Web Service, Docker runtime, free plan) or a Hugging Face Space (Docker SDK).
+
 ## Two-minute demo script
 
 1. **Overview**: 34 deposits in force, 79% confirmed by the bank, 8 need action.

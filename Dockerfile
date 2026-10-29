@@ -13,6 +13,7 @@ WORKDIR /app
 COPY backend/requirements.txt backend/requirements.txt
 RUN pip install --no-cache-dir -r backend/requirements.txt
 COPY backend/ backend/
+RUN sh backend/build_demo.sh   # demo data baked into the image: instant start, clean state on restart
 COPY --from=web /web/dist frontend/dist
 ENV PORT=7860 PYTHONUNBUFFERED=1
 EXPOSE 7860
