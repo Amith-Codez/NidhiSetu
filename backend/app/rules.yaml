@@ -1,0 +1,55 @@
+# NidhiSetu rulebook (sample). Each rule names its source; officers edit this file, not the code.
+# "hard" rules decide the verification status; "soft" rules only raise the risk score.
+version: "Security deposit / FDR rules, sample set for 2026-27"
+rules:
+  - id: R-FLD-01
+    title: Every mandatory field is on the receipt
+    fail: Mandatory fields missing from the receipt
+    kind: required_fields
+    fields: [bank, ifsc, fdr_no, depositor, favour, amount_inr, deposit_date, maturity_date]
+    severity: hard
+    ref: "PS SIH26265: institution-wise and instrument-wise records"
+  - id: R-FAV-01
+    title: Drawn in favour of the Member Secretary, AICTE
+    fail: Not drawn in favour of AICTE
+    kind: favour
+    must_contain: AICTE
+    severity: hard
+    ref: "AICTE security deposit: FDR in favour of the Member Secretary, AICTE"
+  - id: R-LIEN-01
+    title: Lien marked in AICTE's favour
+    fail: No lien marked for AICTE
+    kind: lien
+    severity: hard
+    ref: "Affidavit: not to be encashed or modified without AICTE's prior consent"
+  - id: R-AMT-01
+    title: Amount covers the required security deposit
+    fail: Amount is below the required deposit
+    kind: min_amount
+    severity: hard
+    ref: "Amount set by category in the applicable Approval Process Handbook"
+  - id: R-TEN-01
+    title: Deposit stays in force until the required date
+    fail: Matures before the required date
+    kind: covers_until
+    severity: hard
+    ref: "Deposit to be kept for the prescribed period"
+  - id: R-IFSC-01
+    title: IFSC is on RBI's branch list and belongs to the bank named
+    fail: Branch is not on RBI's IFSC list
+    kind: ifsc
+    severity: hard
+    ref: "RBI NEFT/RTGS IFSC list"
+  - id: R-DUP-01
+    title: Not already pledged by another institution
+    fail: Already pledged by another institution
+    kind: duplicate
+    severity: hard
+    ref: "One instrument secures one institution"
+  - id: R-MAT-01
+    title: Printed maturity value matches the interest arithmetic
+    fail: Maturity value does not fit the rate and period
+    kind: maturity_math
+    tolerance_pct: 0.5
+    severity: soft
+    ref: "Quarterly compounding at the printed rate"

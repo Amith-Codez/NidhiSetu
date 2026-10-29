@@ -1,0 +1,158 @@
+{
+ "documents": 140,
+ "genuine": 60,
+ "forged": 80,
+ "caught": 80,
+ "false_alarms": 0,
+ "median_ms_pdf": 139,
+ "median_ms_photo": 1029,
+ "multi_signal_types": 7,
+ "groups": [
+  {
+   "group": "genuine_pdf",
+   "label": "Genuine receipt (PDF)",
+   "kind": "genuine",
+   "n": 40,
+   "ok": 40,
+   "metric": "confirmed by the bank",
+   "signals": {},
+   "median_ms": 142,
+   "multi_signal": 0
+  },
+  {
+   "group": "genuine_photo",
+   "label": "Genuine receipt, phone photo",
+   "kind": "genuine",
+   "n": 20,
+   "ok": 20,
+   "metric": "confirmed by the bank",
+   "signals": {},
+   "median_ms": 1029,
+   "multi_signal": 0
+  },
+  {
+   "group": "not_issued",
+   "label": "Receipt the bank never issued",
+   "kind": "forged",
+   "n": 10,
+   "ok": 10,
+   "metric": "caught",
+   "signals": {
+    "bank_not_found": 10
+   },
+   "median_ms": 138,
+   "multi_signal": 0
+  },
+  {
+   "group": "amount_raised",
+   "label": "Amount raised with a white patch",
+   "kind": "forged",
+   "n": 10,
+   "ok": 10,
+   "metric": "caught",
+   "signals": {
+    "R-MAT-01": 10,
+    "bank_differs_amount_inr": 10,
+    "field_font_mismatch": 10,
+    "incremental_saves": 10,
+    "pdf_overlay_edit": 10
+   },
+   "median_ms": 140,
+   "multi_signal": 10
+  },
+  {
+   "group": "maturity_extended",
+   "label": "Maturity date pushed later",
+   "kind": "forged",
+   "n": 10,
+   "ok": 10,
+   "metric": "caught",
+   "signals": {
+    "bank_differs_maturity_date": 10,
+    "incremental_saves": 10,
+    "pdf_overlay_edit": 10
+   },
+   "median_ms": 145,
+   "multi_signal": 10
+  },
+  {
+   "group": "closed_early",
+   "label": "Closed early at the bank",
+   "kind": "forged",
+   "n": 10,
+   "ok": 10,
+   "metric": "caught",
+   "signals": {
+    "bank_closed_early": 10,
+    "bank_no_lien": 10
+   },
+   "median_ms": 144,
+   "multi_signal": 10
+  },
+  {
+   "group": "duplicate",
+   "label": "Already pledged by another college",
+   "kind": "forged",
+   "n": 10,
+   "ok": 10,
+   "metric": "caught",
+   "signals": {
+    "R-DUP-01": 10,
+    "bank_differs_depositor": 10
+   },
+   "median_ms": 136,
+   "multi_signal": 10
+  },
+  {
+   "group": "no_lien",
+   "label": "No lien for AICTE",
+   "kind": "forged",
+   "n": 10,
+   "ok": 10,
+   "metric": "caught",
+   "signals": {
+    "R-FAV-01": 10,
+    "R-LIEN-01": 10,
+    "bank_no_lien": 10
+   },
+   "median_ms": 138,
+   "multi_signal": 10
+  },
+  {
+   "group": "lookalike_qr",
+   "label": "QR opens a look-alike site",
+   "kind": "forged",
+   "n": 10,
+   "ok": 10,
+   "metric": "caught",
+   "signals": {
+    "bank_not_found": 10,
+    "qr_untrusted": 10
+   },
+   "median_ms": 140,
+   "multi_signal": 10
+  },
+  {
+   "group": "fake_branch",
+   "label": "IFSC of a branch that does not exist",
+   "kind": "forged",
+   "n": 10,
+   "ok": 10,
+   "metric": "caught",
+   "signals": {
+    "R-IFSC-01": 10,
+    "bank_not_found": 10
+   },
+   "median_ms": 137,
+   "multi_signal": 10
+  }
+ ],
+ "closure_simulation": {
+  "deposits": 10000,
+  "recheck_days": 90,
+  "paper_median_days": 1178,
+  "paper_p90_days": 2300,
+  "ours_median_days": 45,
+  "ours_max_days": 90
+ }
+}
