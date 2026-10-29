@@ -2,6 +2,8 @@
 
 Every security deposit confirmed with the bank, and tracked from submission to release.
 
+**Live demo:** https://nidhisetu-l4et.onrender.com (free plan: the first visit after a quiet spell takes about a minute to wake up)
+
 The PS asks for a portal that tells apart "what the institution submitted" from "what the bank confirmed". NidhiSetu reads each FDR, checks the deposit rules, asks the bank directly (Tier 1 signed e-FDR or QR, Tier 2 term-deposit API, Tier 3 signed branch link), and puts the two side by side. A daily monitor sends reminders at 90, 60, 30 and 7 days and escalates overdue deposits. It also re-checks every active deposit with its bank every 90 days, so an FD closed early is caught within a quarter, not at maturity. Release needs two different officials and ends in a discharge letter asking the bank to remove AICTE's lien.
 
 ## What is in this folder
@@ -29,7 +31,7 @@ cd ../frontend && npm ci && npm run build && cd ../backend
 .venv/bin/python -m pytest -q tests                                   # 6 tests
 ```
 
-(`backend/.venv` and `frontend/node_modules` are links to the SatyaPatra project's environment on this laptop. Elsewhere, create them with `python3 -m venv .venv && .venv/bin/pip install -r ../../satyapatra/backend/requirements.txt` and `npm ci`.)
+(`backend/.venv` and `frontend/node_modules` are links to the SatyaPatra project's environment on this laptop. Elsewhere, create them with `python3 -m venv .venv && .venv/bin/pip install -r requirements.txt` and `npm install`.)
 
 ## Deploy (one container)
 

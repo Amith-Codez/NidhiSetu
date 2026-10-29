@@ -21,6 +21,8 @@ TEMPLATE = "SIH2026-official-template.pptx"
 OUT = "NidhiSetu_SIH26265_Idea.pptx"
 TEAM_NAME = "[Team Name]"   # fill before export: must not contain the college name
 TEAM_ID = "[Team ID]"
+LIVE = "https://nidhisetu-l4et.onrender.com"   # Render free plan: the first visit after 15 idle minutes takes about a minute
+CODE = "https://github.com/Amith-Codez/NidhiSetu"
 EVAL = json.load(open("../backend/data/eval/results.json"))
 SIM = EVAL["closure_simulation"]
 SAFFRON = "B8640F"
@@ -113,8 +115,8 @@ text(s2, 9.5, 4.02, 3.35, 0.8, [
 s2.shapes.add_picture("img/pipeline.png", Inches(0.4), Inches(5.0), width=Inches(12.53))
 text(s2, 0.4, 6.4, 12.53, 0.3, [{"runs": [
     ("Demo video: ", {"bold": True, "color": NAVY}), ("[add unlisted link]", {"color": MUTED}),
-    ("     Live prototype: ", {"bold": True, "color": NAVY}), ("[add link]", {"color": MUTED}),
-    ("     Code: ", {"bold": True, "color": NAVY}), ("[add GitHub link]", {"color": MUTED})]}], size=10)
+    ("     Live prototype: ", {"bold": True, "color": NAVY}), (LIVE.split("//")[1], {"link": LIVE, "color": BLUE}),
+    ("     Code: ", {"bold": True, "color": NAVY}), (CODE.split("//")[1], {"link": CODE, "color": BLUE})]}], size=10)
 notes(s2, "30 seconds. Open with Chandigarh: ₹116.84 crore of FDRs that the bank never issued, and nobody noticed for a year. "
           "NidhiSetu asks the bank on day one and again every quarter. Point at the screenshot: receipt ₹25 lakh, bank ₹2.5 lakh, "
           "the white patch is box 1. Point at the green box: measured, not promised. Close: the officer decides; the bank's record decides what is true.")
