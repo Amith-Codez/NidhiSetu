@@ -1,0 +1,13 @@
+backend/.venv
+backend/data/nidhisetu.db
+backend/data/uploads
+backend/data/renders
+backend/data/letters
+backend/data/demo_docs
+backend/data/eval/docs
+backend/bank_sandbox/records.json
+frontend/node_modules
+frontend/dist
+downloads
+deck
+**/__pycache__

@@ -9,7 +9,6 @@ from datetime import datetime, timezone
 from pathlib import Path
 
 import fitz
-import imagehash
 import qrcode
 from PIL import Image, ImageDraw, ImageFilter, ImageFont
 from reportlab.lib.colors import HexColor
@@ -191,4 +190,5 @@ def overlay_edit(src, dst, old, new, fontname="Times-Roman", fontsize=11):
 
 
 def specimen_hash(master):
+    import imagehash  # only needed for seal specimens, not for FDRs
     return str(imagehash.phash(scan(master, seed=0)))

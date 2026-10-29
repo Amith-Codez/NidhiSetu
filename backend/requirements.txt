@@ -1,0 +1,19 @@
+# NidhiSetu runtime dependencies (versions as tested)
+cryptography==50.0.2
+fastapi==0.159.1
+httpx==0.28.1
+numpy==2.5.4
+opencv-python-headless==5.0.0.93
+pillow==13.0.0
+pydantic==2.14.1
+pyHanko==0.38.0
+pymupdf==2.0
+python-multipart==0.0.32
+PyYAML==6.0.3
+qrcode==8.2
+RapidFuzz==3.14.6
+rapidocr-onnxruntime==1.4.4
+reportlab==5.1.0
+SQLAlchemy==2.1.6
+uvicorn[standard]==0.54.0
+# tests: pytest==9.1.1 · deck capture scripts: websockets==17.3
